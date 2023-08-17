@@ -2,5 +2,7 @@ Sistema de gerar recibos de materiais solicitados por funcionários.
 
 Empresa: Mais Descartáveis.
 
+Tecnologias usadas: HTML, CSS e JavaScript
+(pdf-lib como biblioteca para gerar os arquivos em PDF.)
 
 Desenvolvido por: Hugo Cardoso 💚
