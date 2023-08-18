@@ -12,7 +12,7 @@ const { PDFDocument, StandardFonts, rgb } = PDFLib
     const materiais = document.querySelectorAll('.ma')
 
     const qtd = document.querySelectorAll('.qt')
-
+    let regex = /^[a-zA-ZÀ-ú\s]+$/;
     
 
 		
@@ -35,6 +35,11 @@ const { PDFDocument, StandardFonts, rgb } = PDFLib
       if(nome.value === '' || material.value === '' || quantidade.value === '') {
         alert('Você precisa preencher todos os campos!')
         return
+      }
+
+      if(!regex.test(material.value)) {
+	alert('Apenas texto no campo Material')
+	return
       }
 
 
