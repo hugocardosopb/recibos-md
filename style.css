@@ -171,3 +171,7 @@ footer {
     left: 10px; /* Você pode ajustar o valor conforme necessário */
     cursor: pointer;
 }
+
+#desativePage {
+    margin: 0 auto;
+}
