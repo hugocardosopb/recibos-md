@@ -10,17 +10,11 @@ const { PDFDocument, StandardFonts, rgb } = PDFLib
 
     //aqui eu pego todos os inputs onde é inserido os nomes dos materiais.
     const materiais = document.querySelectorAll('.ma')
-
     const qtd = document.querySelectorAll('.qt')
     let regex = /^[a-zA-ZÀ-ú\s]+$/;
-    
-
-		
+    	
     async function createPdf() {
-
         let result = '';
-
-        
         for (let i = 0; i < qtd.length; i++) {
             if(qtd[i].value !== '' && materiais[i].value !== '') {
                 result += `(${qtd[i].value}) - ${materiais[i].value}\n`;
@@ -28,9 +22,7 @@ const { PDFDocument, StandardFonts, rgb } = PDFLib
             else {
                 result += ''
             }
-            
         }
-        
         
       if(nome.value === '' || material.value === '' || quantidade.value === '') {
         alert('Você precisa preencher todos os campos!')
@@ -41,17 +33,11 @@ const { PDFDocument, StandardFonts, rgb } = PDFLib
 	alert('Apenas texto no campo Material')
 	return
       }
-
-
       else {
-        const pdfDoc = await PDFDocument.create()
-			
+        const pdfDoc = await PDFDocument.create()	
         const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman)
-
         const page = pdfDoc.addPage()
-
         const { width, height } = page.getSize()
-
         const fontSize = 14
         page.drawText(`Mais Descartáveis - Recursos Humanos\n------------------------------------------------------------------------------------------------\nEu,\n ${nome.value}, declaro que peguei os materiais:\n${result} \n\n\nAss:__________________________                              ___/___/___\n------------------------------------------------------------------------------------------------`, {
             x: 50,
@@ -60,14 +46,11 @@ const { PDFDocument, StandardFonts, rgb } = PDFLib
             font: timesRomanFont,
             color: rgb(0,0,0),
         })
-        
         const pdfBytes = await pdfDoc.save()
         download(pdfBytes, "recibo-material", "application/pdf");
         }
-
         // limpa todos os campos aqui
     }
-
 
     function addEl() {
         modal.setAttribute('style', 'display:flex')
